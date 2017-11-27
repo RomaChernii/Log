@@ -1,6 +1,6 @@
 <?php
 
-namespace Smile\Log\Setup;
+namespace Smile\Login\Setup;
 
 use Magento\Framework\Setup\InstallSchemaInterface;
 use Magento\Framework\Setup\ModuleContextInterface;
@@ -54,10 +54,10 @@ class InstallSchema implements InstallSchemaInterface {
         )->addIndex(
             $setup->getIdxName(
                 $installer->getTable('users'),
-                ['firstname', 'lastname', 'email'],
+                ['firstname', 'lastname', 'email', 'password'],
                 AdapterInterface::INDEX_TYPE_FULLTEXT
             ),
-            ['firstname', 'lastname', 'email'],
+            ['firstname', 'lastname', 'email', 'password'],
             ['type' => AdapterInterface::INDEX_TYPE_FULLTEXT]
         )->setComment(
             'Users Table'

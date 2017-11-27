@@ -1,0 +1,32 @@
+<?php
+namespace Smile\Login\Controller;
+
+use Magento\Framework\App\Action\Action;
+use Magento\Framework\App\Action\Context;
+use Smile\Login\Api\RepositoryInterface;
+
+class Index extends Action
+{
+
+    protected $reporitory;
+
+    public function __construct(
+        Context $context,
+        RepositoryInterface $reporitory
+    ) {
+        $this->reporitory = $reporitory;
+        parent::__construct(
+        $context
+        );
+    }
+
+    public function execute()
+    {
+        try {
+            $id = 2;
+            $this->reporitory->deleteById($id);
+        } catch (\Exception $e) {
+            $this->messageManager->addException($e, $e->getMessage());
+        }
+    }
+}

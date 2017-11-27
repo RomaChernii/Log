@@ -1,6 +1,6 @@
 <?php
 
-namespace Smile\Log\Setup;
+namespace Smile\Login\Setup;
 
 use Magento\Framework\Setup\UpgradeSchemaInterface;
 use Magento\Framework\Setup\SchemaSetupInterface;
@@ -13,10 +13,9 @@ class UpgradeSchema implements UpgradeSchemaInterface {
     {
         $setup->startSetup();
 
-        if (version_compare($context->getVersion(), '0.3.7') < 0) {
-            $id = $this->getRequest()->getParam('id');
-            $model = Mage::getModel('log/log');
-            $model->setId($id)->delete();
+        if (version_compare($context->getVersion(), '0.4.2') < 0) {
+          
+
         }
 
         $setup->endSetup();
