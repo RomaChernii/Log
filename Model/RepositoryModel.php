@@ -3,11 +3,12 @@
 namespace Webkul\Hello\Model;
 
 use Smile\Login\Api\RepositoryInterface;
+use Smile\Login\Api\Data\UserInterface;
 
 class RepositoryModel implements RepositoryInterface
 {
 
-    public function save(\Smile\Login\Api\Data\UserInterface $user)
+    public function save(UserInterface $user)
     {
     //your code
     }
@@ -17,13 +18,15 @@ class RepositoryModel implements RepositoryInterface
     //your code
     }
 
-    public function delete(\Smile\Login\Api\Data\UserInterface  $user)
+    public function delete(UserInterface  $user)
     {
     //your code
     }
 
     public function deleteById($id)
     {
-    //your code
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        $user = $objectManager->create('Smile\Login\Model\User');
+        $user->load($id)->delete();
     }
 }

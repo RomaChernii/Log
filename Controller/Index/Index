@@ -1,5 +1,5 @@
 <?php
-namespace Smile\Login\Controller;
+namespace Smile\Login\Controller\Index;
 
 use Magento\Framework\App\Action\Action;
 use Magento\Framework\App\Action\Context;
@@ -23,8 +23,8 @@ class Index extends Action
     public function execute()
     {
         try {
-            $id = 2;
-            $this->reporitory->deleteById($id);
+            $userid = 2;
+            $this->reporitory->deleteById($userid);
         } catch (\Exception $e) {
             $this->messageManager->addException($e, $e->getMessage());
         }
